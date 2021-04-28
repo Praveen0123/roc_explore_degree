@@ -1,0 +1,29 @@
+<section class="flex justify-end aign-middle">
+
+  <div class="flex-none">
+
+    <roc-button-with-icon *ngIf="!isSaved"
+                          title="Save"
+                          fontSet="fal"
+                          fontIcon="heart"
+                          (onClick)="toggleSave()"></roc-button-with-icon>
+
+    <roc-button-with-icon *ngIf="isSaved"
+                          title="Saved"
+                          fontSet="fas"
+                          fontIcon="heart"
+                          (onClick)="toggleSave()"></roc-button-with-icon>
+
+  </div>
+
+
+  <div class="flex-none">
+
+    <roc-button-with-icon [title]="'Share'"
+                          [fontSet]="'fas'"
+                          [fontIcon]="'share-square'"
+                          (onClick)="onShareClick()"></roc-button-with-icon>
+
+  </div>
+
+</section>

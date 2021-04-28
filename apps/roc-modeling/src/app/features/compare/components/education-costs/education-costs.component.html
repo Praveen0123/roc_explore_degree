@@ -1,0 +1,28 @@
+<ng-container *ngIf="roiAggregateDto; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>???</div>
+    <div>???</div>
+    <div>???</div>
+    <div>???</div>
+    <div>???</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Education Cost (Net Price)</div>
+    <div>Federal Loan Amount</div>
+    <div>Private Loan Amount</div>
+    <div>Out Of Pocket Cost</div>
+    <div>Loan Default Rate</div>
+
+  </section>
+
+</ng-template>

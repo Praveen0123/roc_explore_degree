@@ -1,0 +1,24 @@
+<ng-container *ngIf="{
+    savedModelList: savedModelList$ | async,
+    compareIdList: compareIdList$ | async,
+    isOffCanvasOpen: isOffCanvasOpen$ | async
+  } as data">
+
+
+  <section class="h-full antialiased text-gray-900">
+    <roc-header [isOffCanvasOpen]="data.isOffCanvasOpen"
+                (onShowSaved)="onShowSaved($event)"></roc-header>
+
+    <roc-off-canvas-saved-models [class.active]="data.isOffCanvasOpen"
+                                 [savedModelList]="data.savedModelList"
+                                 [compareIdList]="data.compareIdList"
+                                 (onClose)="closeOffCanvas()"
+                                 (onAddToCompareClick)="onAddToCompareClick($event)"
+                                 (onRemoveFromCompareClick)="onRemoveFromCompareClick($event)"
+                                 (onDelete)="onDeleteSavedModel($event)"></roc-off-canvas-saved-models>
+
+    <router-outlet></router-outlet>
+
+  </section>
+
+</ng-container>

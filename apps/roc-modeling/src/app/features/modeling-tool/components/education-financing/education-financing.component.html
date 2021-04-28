@@ -1,0 +1,109 @@
+<form [formGroup]="formGroup">
+
+  <section class="flex flex-col w-full">
+
+    <!-- DEPENDENCY STATUS  -->
+    <div class="mt-6 mb-1">
+
+      <mat-label>
+        <div>What is your dependency status?</div>
+      </mat-label>
+
+      <mat-radio-group formControlName="isTaxDependent"
+                       aria-label="part or full time student" (change)="onTaxDependentChange($event)">
+        <mat-radio-button [value]="true">Dependent</mat-radio-button>
+        <mat-radio-button [value]="false">Independent</mat-radio-button>
+      </mat-radio-group>
+
+
+    </div>
+
+
+    <!-- FINANCING SLIDERS -->
+    <div class="mt-6 mb-1">
+      <section class="flex ">
+
+        <!-- OUT OF POCKET AMOUNT -->
+        <div class="flex-1">
+
+          <h3>Out Of Pocket</h3>
+          <h5>({{cumulativeOutOfPocketExpensesMax | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="cumulativeOutOfPocketExpensesMax"
+                                 [initialValue]="cumulativeOutOfPocketExpensesMax"
+                                 [step]="sliderStep"
+                                 [color]="'#8E0F93'"
+                                 (input)="onCumulativeOutOfPocketExpensesInput($event)"
+                                 (change)="onCumulativeOutOfPocketExpensesChange($event)"></roc-lib-slider-circle>
+
+        </div>
+
+
+        <!-- FEDERAL LOAN -->
+        <div class="flex-1">
+
+          <h3>Federal Loan</h3>
+          <h5>({{cumulativeFederalLoanAmountMax | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="100000"
+                                 [initialValue]="arraySum(federalLoanAmountByYear)"
+                                 [step]="sliderStep"
+                                 [color]="'#0866A0'"
+                                 [isInteractive]="false"></roc-lib-slider-circle>
+
+        </div>
+
+
+        <!-- PRIVATE LOAN -->
+        <div class="flex-1">
+
+          <h3>Private Loan</h3>
+          <h5>({{cumulativePrivateLoanAmountMax | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="cumulativePrivateLoanAmountMax"
+                                 [initialValue]="arraySum(privateLoanAmountByYear)"
+                                 [step]="sliderStep"
+                                 [color]="'#BC0000'"
+                                 [isInteractive]="false"></roc-lib-slider-circle>
+
+        </div>
+
+
+      </section>
+    </div>
+
+
+    <!-- YEARS TO PAYOFF FEDERAL LOAN  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Years to payoff federal loan"
+                  formControlName="yearsToPayOffFederalLoan"
+                  [min]="payOffMinimumInYears"
+                  [max]="payOffMaximumInYears"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+
+    <!-- YEARS TO PAYOFF PRIVATE LOAN  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Years to payoff private loan"
+                  formControlName="yearsToPayOffPrivateLoan"
+                  [min]="payOffMinimumInYears"
+                  [max]="payOffMaximumInYears"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+  </section>
+
+</form>
+
+<!-- <p>
+  Form is {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<pre>
+{{formGroup.value | json}}
+</pre> -->

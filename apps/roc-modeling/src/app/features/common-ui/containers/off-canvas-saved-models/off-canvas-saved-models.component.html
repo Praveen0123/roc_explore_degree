@@ -1,0 +1,76 @@
+<ng-container *ngIf="(savedModelList && savedModelList.length > 0); else noSavedModels">
+
+  <section class="flex flex-col">
+
+    <div class="mb-6 border-b">
+
+      <section class="flex align-middle">
+
+        <div class="flex-1">
+          <span class="text-base font-bold text-black">Saved Models</span>
+        </div>
+
+        <div class="flex-1 text-right">
+
+          <roc-button-with-icon [fontSet]="'fas'"
+                                [fontIcon]="'times'"
+                                (onClick)="onClose()"></roc-button-with-icon>
+
+        </div>
+      </section>
+
+    </div>
+
+
+    <div *ngFor="let item of savedModelList">
+
+      <roc-saved-model [roiAggregateDto]="item"
+                       [compareIdList]="compareIdList"
+                       (onCompareClick)="onCompareClick($event, item)"
+                       (onDelete)="onDelete($event)"
+                       class="pb-6 mb-6 border-b"></roc-saved-model>
+
+    </div>
+
+  </section>
+
+</ng-container>
+
+
+
+<ng-template #noSavedModels>
+
+  <section class="flex flex-col titles-container">
+
+    <div>
+
+      <section class="flex align-middle">
+
+        <div class="flex-1">
+          <span class="text-sm font-bold text-black">No Saved Models</span>
+        </div>
+
+        <div class="flex-1 text-right">
+
+          <roc-button-with-icon [fontSet]="'fas'"
+                                [fontIcon]="'times'"
+                                (onClick)="onClose()"></roc-button-with-icon>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <div>
+      <span class="text-xs text-gray-400">Once you have saved a model, you'll see them here</span>
+    </div>
+
+    <div class="flex-1 text-center">
+      <mat-icon class="icon-owl-compare mt-7"
+                [svgIcon]="'icon-owl-compare'"></mat-icon>
+    </div>
+
+  </section>
+
+</ng-template>

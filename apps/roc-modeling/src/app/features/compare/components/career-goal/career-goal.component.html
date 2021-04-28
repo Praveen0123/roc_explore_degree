@@ -1,0 +1,28 @@
+<ng-container *ngIf="roiAggregateDto; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{roiAggregateDto.careerGoal.occupation.title}}</div>
+    <div>{{roiAggregateDto.careerGoal.location.cityName}}, {{roiAggregateDto.careerGoal.location.stateAbbreviation}}</div>
+    <div>{{roiAggregateDto.careerGoal.retirementAge}}</div>
+    <div>{{roiAggregateDto.educationCost.startYear}}</div>
+    <div>{{roiAggregateDto.careerGoal.degreeProgram.cipTitle}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Career</div>
+    <div>Location</div>
+    <div>Retirement Age</div>
+    <div>Beginning Academic Year</div>
+    <div>Degree</div>
+
+  </section>
+
+</ng-template>

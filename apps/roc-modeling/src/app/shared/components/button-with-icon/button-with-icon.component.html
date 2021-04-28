@@ -1,0 +1,15 @@
+<button mat-button
+        [disabled]="!isValid"
+        (click)="onClick()">
+
+  <fa-icon class="text-sm"
+           [icon]="[fontSet, fontIcon]"></fa-icon>
+
+  <span class="ml-1.5 text-sm">
+    {{title}}
+    <ng-content></ng-content>
+  </span>
+
+
+
+</button>

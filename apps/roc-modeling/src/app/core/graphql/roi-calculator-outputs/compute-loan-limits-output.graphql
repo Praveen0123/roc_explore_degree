@@ -1,0 +1,14 @@
+query computeLoanLimitsOutput(
+  $independent: Boolean
+  $numYears: Int
+) {
+  computeLoanLimitsOutput(
+    independent: $independent
+    numYears: $numYears
+  ) {
+    federalSubsidizedLoanTotalMax
+    federalSubsidizedLoanYear
+    federalUnsubsidizedLoanTotalMax
+    federalUnsubsidizedLoanYear
+  }
+}

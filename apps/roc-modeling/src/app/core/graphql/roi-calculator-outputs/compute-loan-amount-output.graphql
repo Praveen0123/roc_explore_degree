@@ -1,0 +1,23 @@
+query computeLoanAmountOutput(
+  $tuitionFee: Int
+  $outOfPocket: [Int]
+  $numYears: Int
+  $independent: Boolean
+  $efc: Float
+  $participation: Float
+) {
+  computeLoanAmountOutput(
+    tuitionFee: $tuitionFee
+    outOfPocket: $outOfPocket
+    numYears: $numYears
+    independent: $independent
+    efc: $efc
+    participation: $participation
+  ) {
+    federalSubsidizedLoan
+    federalUnsubsidizedLoan
+    federalLoan
+    pellAward
+    privateLoan
+  }
+}

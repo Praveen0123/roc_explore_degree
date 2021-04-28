@@ -1,0 +1,25 @@
+$base-size: 0.75rem;
+
+.mat-radio-group {
+  .mat-radio-button {
+    .mat-radio-container {
+      height: $base-size;
+      width: $base-size;
+      .mat-radio-outer-circle,
+      .mat-radio-inner-circle {
+        height: $base-size;
+        width: $base-size;
+      }
+      .mat-ripple {
+        height: $base-size * 1.5;
+        width: $base-size * 1.5;
+        left: calc(50% - (#{$base-size} * 1.5 / 2));
+        top: calc(50% - (#{$base-size} * 1.5 / 2));
+      }
+    }
+    .mat-radio-label-content {
+      padding-left: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
+}
